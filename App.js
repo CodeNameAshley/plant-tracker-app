@@ -1,11 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
+
 import { StyleSheet, Text, View } from 'react-native';
+import NavBar from "./components/NavBar";
+import {NavigationContainer} from "@react-navigation/native";
+import HomeScreen from "./components/HomeScreen";
+import SettingsScreen from "./components/SettingsScreen";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View styles={styles.container}>
+        <View style={styles.styledText}>
+            <Text>Plant Tracker</Text>
+        </View>
+        <View>
+            <NavigationContainer>
+                <NavBar home={HomeScreen} settings={SettingsScreen} />
+            </NavigationContainer>
+        </View>
     </View>
   );
 }
@@ -17,4 +27,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  styledText: {
+      textAlign: 'center',
+    margin: 2,
+    paddingBottom: 675
+  }
 });
